@@ -54,14 +54,12 @@
       padding: 12px;
       background-color:$header-background;
       z-index: 999;
+      .container.header-bar {
+        justify-content: space-between;
+        align-items: center;
+      }
     }
   } 
-
-  .container.header-bar {
-    justify-content: space-between;
-    align-items: center;
-  }
-
   .logo {
     a {
       img {

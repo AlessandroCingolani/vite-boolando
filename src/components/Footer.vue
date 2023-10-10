@@ -18,13 +18,17 @@ export default {
 
         <div class="information-footer">
           <a href="#"><h4>Booleando s.r.l</h4></a>
-          <a v-for="(text,index) in info " :key="index" :href="text.href"><span>{{text.text}}</span></a>
+          <a v-for="(text,index) in info " :key="index" :href="text.href">
+            <span>{{text.text}}</span>
+          </a>
         </div>
 
         <nav class="footer-icons">
           <h5>Trovaci anche su</h5>
           <ul>
-            <li v-for="(icon,index) in social " :key="index"><a :href="icon.href"><i :class="icon.icon"></i></a></li>
+            <li v-for="(icon,index) in social " :key="index">
+              <a :href="icon.href"><i :class="icon.icon"></i></a>
+            </li>
           </ul>
         </nav> 
       </div>

@@ -29,7 +29,9 @@
         
         <nav class="top-icons">
           <ul>
-            <li v-for="(icon,index) in icons" :key="index"><a :href="icon.href"><i :class="icon.icon"></i></a></li>
+            <li v-for="(icon,index) in icons" :key="index">
+              <a :href="icon.href"><i :class="icon.icon"></i></a>
+            </li>
           </ul>
         </nav>
     

@@ -58,18 +58,19 @@
         justify-content: space-between;
         align-items: center;
       }
-    }
-  } 
-  .logo {
-    a {
-      img {
-        width: 120px;
-      }
-    }
-  } 
-  .gender {
-    a {
-      padding-right: 10px;
+      .gender {
+        a {
+          padding-right: 10px;
+        }
+      }   
+      .logo {
+        a {
+          img {
+            width: 120px;
+          }
+        }
+      } 
+      
     }
   } 
 

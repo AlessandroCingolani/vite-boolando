@@ -39,22 +39,26 @@ export default {
   footer {
     background-color: black;
     color: white;
+    .foot-box {
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
   }
+  .footer-icons {
+    h5 {
+      text-align: center;
+      padding-bottom: 5px;
+      font-size: .9rem;
+    }
+  } 
 
-  .foot-box {
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .footer-icons h5 {
-    text-align: center;
-    padding-bottom: 5px;
-    font-size: .9rem;
-  }
-
-  .information-footer a span {
-    font-size: .8rem;
-    padding: 5px 5px 0 0;
+  .information-footer{
+    a {
+     span {
+       font-size: .8rem;
+       padding: 5px 5px 0 0;
+     }
+    }
   }
 </style>

@@ -17,7 +17,7 @@ export default {
       <div class="foot-box d-flex">
 
         <div class="information-footer">
-          <a href="#"><h4>Booleando s.r.l</h4></a>
+          <h4>Booleando s.r.l</h4>
           <a v-for="(text,index) in info " :key="index" :href="text.href">
             <span>{{text.text}}</span>
           </a>
@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 @use '../scss/partials/variables' as *;
   footer {
-    background-color: black;
+    background-color: $footer-color;
     color: white;
     .foot-box {
       justify-content: space-between;

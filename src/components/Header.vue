@@ -1,6 +1,14 @@
   <script>
+  import { gender,icons } from '../data/header-menu';
   export default {
-    name:'Header'
+    name:'Header',
+    data(){
+      return {
+        gender,
+        icons
+      }
+    }
+
   }
   </script>
   
@@ -11,9 +19,8 @@
       <div class="container header-bar d-flex">
 
         <div class="gender">
-          <a href="#">Uomo</a>
-          <a href="#">Donna</a>
-          <a href="#">Bambino</a>
+          <a v-for="(type,index) in gender"
+          :key="index" :href="type.href">{{type.text}}</a>
         </div>
 
         <div class="logo">
@@ -22,9 +29,7 @@
         
         <nav class="top-icons">
           <ul>
-            <li><a href="#"><i class="fa-regular fa-user"></i></a></li>
-            <li><a href="#"><i class="fa-regular fa-heart"></i></a></li>
-            <li><a href="#"><i class="fa-solid fa-bag-shopping"></i></a></li>
+            <li v-for="(icon,index) in icons" :key="index"><a :href="icon.href"><i :class="icon.icon"></i></a></li>
           </ul>
         </nav>
     
@@ -37,29 +42,35 @@
 
 <style lang="scss" scoped>
 @use '../scss/partials/variables' as *;
-  header .top-fixed {
-    width: 100%;
-    position: fixed;
-    box-shadow: 0px 0px 15px $brand-color;
-    top:0;
-    left: 0;
-    padding: 12px;
-    background-color:$header-background;
-    z-index: 999;
-
-  }
+  header{
+    .top-fixed {
+      width: 100%;
+      position: fixed;
+      box-shadow: 0px 0px 15px $brand-color;
+      top:0;
+      left: 0;
+      padding: 12px;
+      background-color:$header-background;
+      z-index: 999;
+    }
+  } 
 
   .container.header-bar {
     justify-content: space-between;
     align-items: center;
   }
 
-  .logo a img {
-    width: 120px;
-  }
-
-  .gender a {
-    padding-right: 10px;
-  }
+  .logo {
+    a {
+      img {
+        width: 120px;
+      }
+    }
+  } 
+  .gender {
+    a {
+      padding-right: 10px;
+    }
+  } 
 
 </style>

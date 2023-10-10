@@ -1,6 +1,13 @@
 <script>
+import { info,social } from '../data/footer-menu';
 export default {
-  name:'Footer'
+  name:'Footer',
+  data(){
+      return {
+        info,
+        social
+      }
+    }
 }
 </script>
 
@@ -11,23 +18,15 @@ export default {
 
         <div class="information-footer">
           <a href="#"><h4>Booleando s.r.l</h4></a>
-          <a href="#"><span>Informazioni legali</span></a>
-          <a href="#"><span>Informativa sulla privacy</span></a>
-          <a href="#"><span>Diritto di recesso</span></a>
+          <a v-for="(text,index) in info " :key="index" :href="text.href"><span>{{text.text}}</span></a>
         </div>
 
         <nav class="footer-icons">
           <h5>Trovaci anche su</h5>
           <ul>
-            <li><a href="#"><i class="fa-brands fa-square-twitter"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-square-pinterest"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-square-youtube"></i></a></li>
+            <li v-for="(icon,index) in social " :key="index"><a :href="icon.href"><i :class="icon.icon"></i></a></li>
           </ul>
-        </nav>
-
-        
+        </nav> 
       </div>
     </div>
   </footer>

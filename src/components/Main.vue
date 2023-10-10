@@ -114,32 +114,44 @@ export default {
 
 <style lang="scss" scoped>
 @use '../scss/partials/variables' as *;
-  .container .product-card {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .product-card {
-    width: 100%;
-    margin-top: 100px;
+  .container {
+    .product-card {
+     justify-content: center;
+     flex-wrap: wrap;
+     width: 100%;
+     margin-top: 100px;
+     padding-bottom: 30px;
+   }
   }
 
   .col-product {
     width: calc(100% / 3);
     padding: 10px;
     position: relative;
+    img {
+      width: 100%;
+    }
+    .box-img {
+      position: relative;
+      .heart {
+        font-size: 1.5rem;
+        background-color: white;
+        padding: 5px 10px;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        &:hover {
+          color: $discount-color;
+          cursor: pointer;
+        }
+      }
+    }
   }
 
-  .col-product img {
-    width: 100%;
-  }
-
-  .col-product .box-img {
-    position: relative;
-  }
-
-  .details-product h4 {
+  .details-product {
+    h4 {
       text-transform: uppercase;
+    }
   }
 
   .details-product :nth-child(3) {
@@ -155,10 +167,6 @@ export default {
 
   .box-img:hover .hidden {
     display: block;
-  }
-
-  .container .product-card {
-    padding-bottom: 30px;
   }
 
   .discount ,.green-piece {
@@ -180,19 +188,6 @@ export default {
 
   .green-piece.alone {
     left: 0;
-  }
-
-  .heart {
-    font-size: 1.5rem;
-    background-color: white;
-    padding: 5px 10px;
-    position: absolute;
-    top: 10px;
-    right: 0;
-    &:hover {
-      color: $discount-color;
-      cursor: pointer;
-    }
   }
 
 

@@ -4,6 +4,19 @@ export default {
   name:'ProductCard',
   props:{
     productObj: Object
+  },
+
+  data (){
+    return {
+
+    }
+  },
+
+  computed: {
+    price(){
+      return this.productObj.lastPrice.toFixed(2 ,'0').replace(".", ",");
+    }
+
   }
   
 }
@@ -26,8 +39,8 @@ export default {
     <div class="details-product">
       <h6>{{ productObj.marca }}</h6>
       <h4>{{ productObj.modello }}</h4>
-      <span>{{ productObj.lastPrice }}</span>
-      <span>{{ productObj.fullPrice }}</span>
+      <span class="product-actual-price">{{ `${price} €` }}</span>
+      <span class="product-old-price" v-if="(productObj.fullPrice != null)">{{ `${productObj.fullPrice} €` }}</span>
     </div>
   </div>
 </template>
@@ -44,6 +57,11 @@ export default {
     }
     .box-img {
       position: relative;
+
+      &:hover .hidden {
+        display: block;
+      }
+
       .heart {
         font-size: 1.5rem;
         background-color: white;
@@ -51,6 +69,7 @@ export default {
         position: absolute;
         top: 10px;
         right: 0;
+
         &:hover {
           color: $discount-color;
           cursor: pointer;
@@ -59,7 +78,7 @@ export default {
       .labels {
         color: white;
         position: absolute;
-        bottom: 60px;
+        bottom: 40px;
         .green-piece {
           padding: 2px 5px;
           background-color: $green-piece;
@@ -71,34 +90,24 @@ export default {
         }
       }
     }
-  }
-
-  .details-product {
-    h4 {
-      text-transform: uppercase;
+    .details-product {
+      h6 {
+        color: $brand-color;
+        padding-bottom: 4px;
+      }
+      
+      h4 {
+        text-transform: uppercase;
+      }
+      .product-actual-price {
+        color: $discount-color;
+        font-weight: 800;
+        margin-right: 3px;
+      }
+    
+      .product-old-price {
+        text-decoration: line-through;
+      }
     }
-  }
-
-  .details-product :nth-child(3) {
-    color: red;
-    font-weight: 800;
-    margin-right: 3px;
-  }
-
-  .details-product :nth-child(4) {
-    text-decoration: line-through;
-  }
-
-
-  .box-img:hover .hidden {
-    display: block;
-  }
-
-
-
-
-  h6 {
-    color: $brand-color;
-    padding-bottom: 4px;
   }
 </style>

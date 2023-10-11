@@ -93,7 +93,7 @@ export default {
     .details-product {
       h6 {
         color: $brand-color;
-        padding-bottom: 4px;
+        padding-bottom: 1px;
       }
       
       h4 {

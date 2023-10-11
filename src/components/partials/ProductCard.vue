@@ -1,7 +1,10 @@
 <script>
 
 export default {
-  name:'PorductCard',
+  name:'ProductCard',
+  props:{
+    productObj: Object
+  }
   
 }
 </script>
@@ -9,22 +12,24 @@ export default {
 <template>
   <!-- box-img product -->
   <div class="col-product">
-          <div class="box-img">
-            <a href=""><img src="/img/1.webp" alt="img1"></a>
-            <a href="#"><img class="hidden" src="/img/1b.webp" alt=""></a>
-            <span class="heart">&hearts;</span>
-            <span class="discount">-50%</span>
-            <span class="green-piece">Sostenibilità</span>
-          </div>
+    <div class="box-img">
+      <a href=""><img :src="`/img/${productObj.primaryImage}`" alt="img1"></a>
+      <a href="#"><img class="hidden" :src="`/img/${productObj.secondaryImage}`" alt=""></a>
+      <span class="heart">&hearts;</span>
+      <div class="labels">
+        <span class="discount" v-if="(productObj.discount != null)">{{productObj.discount }}</span>
+        <span class="green-piece" v-if="(productObj.sostenibilita)">Sostenibilità</span>
+      </div>
+    </div>
 
-          <!-- name and price product -->
-          <div class="details-product">
-            <h6>Levi's</h6>
-            <h4>RELAX FIT TEE UNISEX</h4>
-            <span>14,99€</span>
-            <span>29,99€</span>
-          </div>
-        </div>
+    <!-- name and price product -->
+    <div class="details-product">
+      <h6>{{ productObj.marca }}</h6>
+      <h4>{{ productObj.modello }}</h4>
+      <span>{{ productObj.lastPrice }}</span>
+      <span>{{ productObj.fullPrice }}</span>
+    </div>
+  </div>
 </template>
 
 
@@ -51,6 +56,20 @@ export default {
           cursor: pointer;
         }
       }
+      .labels {
+        color: white;
+        position: absolute;
+        bottom: 60px;
+        .green-piece {
+          padding: 2px 5px;
+          background-color: $green-piece;
+        }
+        .discount {
+          background-color: $discount-color;
+          padding: 2px 5px;
+          margin-right: 3px;
+        }
+      }
     }
   }
 
@@ -75,29 +94,11 @@ export default {
     display: block;
   }
 
-  .discount ,.green-piece {
-  color: white;
-  position: absolute;
-  bottom: 60px;
-  padding: 1px 5px;
-  }
 
-  .discount {
-    background-color: $discount-color;
-    left: 0;
-  }
-
-  .green-piece {
-    background-color: $green-piece;
-    left: 50px;
-  }
-
-  .green-piece.alone {
-    left: 0;
-  }
 
 
   h6 {
     color: $brand-color;
+    padding-bottom: 4px;
   }
 </style>

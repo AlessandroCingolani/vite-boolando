@@ -60,6 +60,9 @@
       }
       .gender {
         a {
+          &:hover{
+            text-decoration: underline;
+          }
           padding-right: 10px;
         }
       }   

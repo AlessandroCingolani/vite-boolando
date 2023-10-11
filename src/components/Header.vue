@@ -24,7 +24,7 @@
         </div>
 
         <div class="logo">
-          <a href="#"><img src="../assets/img/boolean-logo.png" alt="logo"></a>
+          <a href="#"><img src="/img/boolean-logo.png" alt="logo"></a>
         </div>
         
         <nav class="top-icons">
